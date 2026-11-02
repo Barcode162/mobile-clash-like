@@ -1,42 +1,54 @@
 # Stackfort
 
-A mobile-first merge tower defense game with a Clash-style base to upgrade between runs.
+A mobile-first merge tower defense game. You duel an AI commander lane against lane, send attackers to raise your income, and upgrade a Clash-style base between battles.
 
-Open `index.html` in any browser (phone or desktop). No build step and no dependencies.
+Open `index.html` in any browser. It has no build step and no dependencies. All art is drawn in code, and the sound is synthesized.
 
-## Battle (merge tower defense)
-- **Buy tower** places a random Lv 1 tower on a free tile. Each buy costs 3 more coins than the last.
-- **Merge:** drag a tower onto one with the same type and level to make the next level (max Lv 8).
-- **Move / swap:** drag onto an empty tile or onto a different tower.
-- **Sell:** drag onto the Sell bin.
-- **Stack synergy:** 3+ towers of one type give that type +20% damage, and 5+ give +40%. Merging lowers the count, which creates a trade-off.
-- **Mixed army:** 4 different tower types give +10% attack speed, and all 5 give +20%.
-- Every 5th wave adds tanks, and every 10th wave brings a boss. You can play at 1×/2×/3× speed or turn on Auto waves.
+## Modes
+- **Duel:** you and an AI commander each defend your own lane, and the first gate to fall loses.
+  - Waves arrive every 22 seconds on both lanes.
+  - Sending attackers to the other lane raises your income, which pays out every 6 seconds.
+  - Tap the opponent's name to watch their lane live.
+  - Winning earns trophies and ranks, from Recruit up to Legend. The AI gets stronger as your trophies rise.
+- **Endless Siege:** survive as many rounds as you can.
 
-| Tower  | Role                    | Unlocks at |
-|--------|-------------------------|------------|
-| Archer | Fast single target      | TH 1       |
-| Cannon | Splash                  | TH 1       |
-| Frost  | Slow                    | TH 2       |
-| Flame  | Burn damage over time   | TH 3       |
-| Storm  | Chain lightning         | TH 4       |
+## Battle systems
+- **Merge:** drag a tower onto one with the same type and level to level it up, to a maximum of 8.
+- **Branches:** at level 4 every tower picks one of two specializations. Examples are Ballista → Repeater or Siege Bolt, and Mortar → Cluster or Quake.
+- **Runes:** buy runes to the bench and drag them into tower sockets. Towers have 1 socket, 2 at Lv 3 and 3 at Lv 5.
+  - Merging two matching runes on the bench raises the tier, from I to III.
+  - The six runes are Ember, Rime, Venom, Volt, Haste and Focus.
+- **Fusions:** certain rune pairs on one tower unlock a bonus. Examples are Thermal Shock, Overdrive, Corrosion, Deadeye, Superconductor and Weak Point.
+- **Stacking synergy:** 3 or more towers of one type give +20% damage, and 5 or more give +40%. Running 3–4 different types gives an attack-speed bonus.
+- **Enemy traits that need counters:**
+  - Armor (Brute, Colossus) reduces small hits.
+  - Shields (Bulwark) take double damage from splash and burns.
+  - Splitters burst into mites.
+  - Wraiths stay hidden until a Railgun or Focus rune spots them.
+  - Menders heal nearby enemies.
+- **Powers:** Meteor (tap a target), Blizzard and Overcharge, each on a cooldown.
 
-## Base (upgrade layers)
-Cleared waves pay out **Crowns**, which you spend at your base:
-- **Town Hall** (max 8) unlocks towers and sets the level cap for everything else.
-- **Tower cards** give +20% damage per level, up to Town Hall level + 1.
-- **Mastery stars** come from every 150 kills with a tower type, worth +4% damage each, up to 5.
-- **Buildings** are capped at Town Hall level:
-  - Coin Mine gives more starting coins.
-  - Walls give more lives.
-  - Forge gives a chance to buy a Lv 2 tower.
-  - Treasury gives more Crowns.
+## Towers
+| Tower | Role | Unlocks at |
+|---|---|---|
+| Ballista | Fast single-target bolts | TH 1 |
+| Mortar | Lobbed splash shells | TH 1 |
+| Frost Spire | Slows | TH 1 |
+| Pyre | Flame cone that ignores armor | TH 2 |
+| Tesla Coil | Chain lightning | TH 3 |
+| Railgun | Piercing beam that spots Wraiths | TH 4 |
+
+## Base (between battles)
+Battles pay out **Crowns**, which you spend on:
+- **Town Hall:** unlocks towers, runes and powers, and raises every cap.
+- **Tower cards:** permanent +15% damage per level. Kills also earn mastery stars.
+- **Loadout:** pick up to 4 towers. Buying a tower in battle draws from this loadout.
+- **Buildings:**
+  - Mint: more starting coins.
+  - Bastion: more lives.
+  - Forge: chance to buy a Lv 2 tower.
+  - Arcanum: chance to buy a tier II rune.
+  - Watchtower: faster power recharge.
+  - Treasury: more Crowns.
 
 Progress is saved in the browser's localStorage.
-
-## Ideas for next steps
-- Builder timers with stacking helpers
-- Prestige resets for maxed cards
-- Stacked buildings on one tile (for example Wall + Cannon)
-- More maps and enemy types (flying, shielded, healers)
-- Sound and music
